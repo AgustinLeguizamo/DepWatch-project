@@ -74,7 +74,7 @@ function resetUI() {
    SEARCH (lógica compartida)
 ========================= */
 
-async function ejecutarBusqueda(nombre, version, ecosistema) {
+async function ejecutarBusqueda(nombre, version, ecosistema,orden) {
 
     moverFilterBarArriba();
 
@@ -104,6 +104,23 @@ async function ejecutarBusqueda(nombre, version, ecosistema) {
         if (miToken !== searchToken) return;
 
         const vulnerabilidades = datos.vulns || [];
+
+        if (orden === "reciente") {
+
+        vulnerabilidades.sort((a, b) => {
+        return new Date(b.modified)
+            - new Date(a.modified);
+         });
+
+        }
+        else if (orden === "antiguo") {
+
+        vulnerabilidades.sort((a, b) => {
+        return new Date(a.modified)
+            - new Date(b.modified);
+         });
+
+        }
 
         guardarBusqueda(nombre, version, ecosistema);
 
@@ -160,11 +177,12 @@ btnSearch.addEventListener("click", () => {
     const nombre = packageName.value.trim();
     const version = packageVersion.value.trim();
     const ecosistema = ecosystemSelect.value;
+    const orden = orderSelect.value;
 
     if (!nombre) return alert("Debe ingresar un paquete");
     if (!ecosistema) return alert("Debe seleccionar un ecosistema");
 
-    ejecutarBusqueda(nombre, version, ecosistema);
+    ejecutarBusqueda(nombre, version, ecosistema,orden);
 });
 
 /* =========================
@@ -378,7 +396,7 @@ function renderizarHistorial() {
 
             sidebar.classList.add("collapsed");
 
-            ejecutarBusqueda(item.nombre, item.version, item.ecosistema);
+            ejecutarBusqueda(item.nombre, item.version, item.ecosistema,orderSelect.value);
         });
 
         historyContainer.appendChild(div);
