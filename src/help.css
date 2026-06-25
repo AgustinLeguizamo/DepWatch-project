@@ -1,0 +1,264 @@
+:root {
+    --bg-principal: #121212;
+    --bg-sidebar: #1e1e1e;
+    --bg-card: #2a2a2a;
+    --texto-principal: #ffffff;
+    --texto-secundario: #a0a0a0;
+    --color-acento: #e0e0e0;
+    --borde: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    line-height: 1.6;
+}
+
+.help-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 25px;
+}
+
+.help-hero {
+    background-color: var(--bg-sidebar);
+    border: 1px solid var(--borde);
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.help-hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.help-hero p {
+    color: var(--texto-secundario);
+    max-width: 700px;
+}
+
+/* SECCIONES */
+.help-section {
+    margin-bottom: 40px;
+}
+
+.help-section h2 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    border-left: 3px solid var(--color-acento);
+    padding-left: 10px;
+}
+
+.help-section p {
+    color: var(--texto-secundario);
+    margin-bottom: 15px;
+}
+
+.ecosystem-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.ecosystem-card {
+    background-color: var(--bg-sidebar);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 18px;
+
+    flex: 1 1 220px; 
+    min-height: 180px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    transition: 0.2s;
+}
+
+.ecosystem-card:hover {
+    border-color: var(--color-acento);
+    transform: translateY(-3px);
+}
+
+.ecosystem-card h3 {
+    margin-bottom: 8px;
+}
+
+.ecosystem-card p {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+}
+
+.btn-ecosystem {
+    margin-top: 15px;
+    padding: 8px 12px;
+
+    background-color: var(--bg-card);
+    border: 1px solid var(--borde);
+    color: var(--texto-principal);
+
+    border-radius: 6px;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.btn-ecosystem:hover {
+    background-color: var(--color-acento);
+    color: #000;
+}
+
+.best-practices,
+.resources-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.best-practices li,
+.resources-list li {
+    background-color: var(--bg-sidebar);
+    border: 1px solid var(--borde);
+    padding: 10px;
+    border-radius: 6px;
+    color: var(--texto-secundario);
+}
+
+.resources-list a {
+    color: var(--texto-principal);
+    text-decoration: none;
+}
+
+.resources-list a:hover {
+    color: var(--color-acento);
+}
+
+#modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-overlay.active {
+    display: flex;
+}
+
+#modal-card {
+    width: 80%;
+    max-width: 800px;
+
+    background-color: var(--bg-sidebar);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+
+    padding: 25px;
+
+    position: relative;
+}
+
+#close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    background: none;
+    border: none;
+
+    color: var(--texto-principal);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* TERMINAL STYLE */
+.terminal {
+    background-color: #000;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--borde);
+    color: #00ff88;
+    margin: 10px 0;
+    font-family: monospace;
+}
+
+.best-practices li {
+    transition: 0.2s ease;
+}
+
+.best-practices li:hover {
+    transform: translateX(6px);
+    border-color: var(--color-acento);
+    background-color: var(--bg-card);
+    color: var(--texto-principal);
+}
+
+.back-button {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+
+    background-color: var(--bg-sidebar);
+    border: 1px solid var(--borde);
+    color: var(--texto-principal);
+
+    padding: 8px 12px;
+    border-radius: 6px;
+
+    text-decoration: none;
+    font-size: 0.9rem;
+
+    transition: 0.2s;
+    z-index: 1000;
+}
+
+.back-button:hover {
+    background-color: var(--color-acento);
+    color: #000;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+}
+
+.footer:hover {
+    color: var(--texto-principal);
+    transition: 0.2s;
+}
+
+
+
+@media (max-width: 600px) {
+    .help-container {
+        padding: 70px 16px 30px;
+    }
+
+    .help-hero {
+        padding: 24px;
+    }
+
+    .help-hero h1 {
+        font-size: 1.7rem;
+    }
+
+    .ecosystem-card {
+        flex-basis: 150px;
+    }
+}

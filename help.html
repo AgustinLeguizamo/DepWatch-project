@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayuda · DepWatch</title>
+    <link rel="icon" type="image/png" href="./cyber-security.png">
+    <link rel="stylesheet" href="/src/help.css">
+</head>
+<body>
+    <a href="index.html" class="back-button">←</a>
+    <main class="help-container">
+
+        <section class="help-hero">
+            <h1>Guía de Dependencias y Ecosistemas</h1>
+            <p>
+                Aprenda qué son los paquetes, cómo funcionan
+                los ecosistemas de software y cómo mantener
+                sus dependencias actualizadas.
+            </p>
+        </section>
+
+        <section class="help-section">
+            <h2>¿Qué es un paquete?</h2>
+            <p>
+                Un paquete es una unidad distribuible de software que contiene código reutilizable, recursos y metadatos necesarios para ser incorporados en otros proyectos. Los paquetes permiten reutilizar funcionalidades ya desarrolladas, reducir el tiempo de implementación y mantener aplicaciones de manera más eficiente.
+                Dependiendo del ecosistema, un paquete puede incluir bibliotecas, frameworks, herramientas de línea de comandos, módulos de seguridad, archivos de configuración y la información necesaria para gestionar versiones y dependencias.
+                <br>
+                Desde una perspectiva de ciberseguridad, cada paquete incorporado a un proyecto representa una dependencia externa que puede introducir vulnerabilidades, errores de configuración o riesgos para la cadena de suministro de software. Por este motivo, es una práctica esencial monitorear periódicamente las dependencias utilizadas y mantenerlas actualizadas a versiones seguras.
+                <br>
+                Ejemplos comunes de paquetes son Express para Node.js, Flask para Python, Newtonsoft.Json para .NET y Log4j para Java.
+            </p>
+        </section>
+
+        <section class="help-section">
+            <h2>¿Qué es un ecosistema?</h2>
+            <p>
+                Un ecosistema es el conjunto de herramientas, repositorios, convenciones y gestores de dependencias utilizados para distribuir, instalar, actualizar y mantener paquetes dentro de un lenguaje o plataforma de software.
+                Cada ecosistema define cómo se publican los paquetes, cómo se resuelven las dependencias entre ellos y cómo los desarrolladores interactúan con el software de terceros.
+                Los ecosistemas modernos desempeñan un papel fundamental en la cadena de suministro de software (Software Supply Chain), ya que permiten distribuir millones de paquetes a desarrolladores de todo el mundo,
+                por este motivo su seguridad es vital para proteger la continuidad operativa, evitar pérdidas financieras millonarias y salvaguardar la propiedad intelectual.
+                <br>
+                Por ejemplo, npm es el ecosistema predominante para JavaScript y Node.js, PyPI para Python, NuGet para .NET, Maven para Java y crates.io para Rust.
+            </p>
+        </section>
+
+        <section class="help-section">
+            <h2>Ecosistemas soportados</h2>
+
+            <div class="ecosystem-grid">
+
+                <div class="ecosystem-card">
+                    <h3>npm</h3>
+                    <button class="btn-ecosystem" data-ecosystem="npm">Ver detalles</button>
+                </div>
+
+                <div class="ecosystem-card">
+                    <h3>PyPI</h3>
+                    <button class="btn-ecosystem" data-ecosystem="pypi">Ver detalles</button>
+                </div>
+
+                <div class="ecosystem-card">
+                    <h3>Maven</h3>
+                    <button class="btn-ecosystem" data-ecosystem="maven">Ver detalles</button>
+                </div>
+
+                <div class="ecosystem-card">
+                    <h3>NuGet</h3>
+                    <button class="btn-ecosystem" data-ecosystem="nuget">Ver detalles</button>
+                </div>
+
+                <div class="ecosystem-card">
+                    <h3>Go</h3>
+                    <button class="btn-ecosystem" data-ecosystem="go">Ver detalles</button>
+                </div>
+
+                <div class="ecosystem-card">
+                    <h3>RubyGems</h3>
+                    
+                    <button class="btn-ecosystem" data-ecosystem="rubygems">Ver detalles</button>
+                </div>
+
+                <div class="ecosystem-card">
+                    <h3>Crates.io</h3>
+                    <button class="btn-ecosystem" data-ecosystem="crates">Ver detalles</button>
+                </div>
+
+                <div class="ecosystem-card">
+                    <h3>Packagist</h3>
+                    <button class="btn-ecosystem" data-ecosystem="packagist">Ver detalles</button>
+                </div>
+
+                <div class="ecosystem-card">
+                    <h3>Hex</h3>
+                    <button class="btn-ecosystem" data-ecosystem="hex">Ver detalles</button>
+                </div>
+
+                <div class="ecosystem-card">
+                    <h3>Pub</h3>
+                    <button class="btn-ecosystem" data-ecosystem="pub">Ver detalles</button>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>Buenas prácticas</h2>
+            <ul class="best-practices">
+                <li>Revisar vulnerabilidades periódicamente.</li>
+                <li>Mantener dependencias actualizadas.</li>
+                <li>Eliminar paquetes sin uso.</li>
+                <li>Utilizar versiones estables.</li>
+                <li>Leer changelogs antes de actualizar.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <div id="modal-overlay">
+        <div id="modal-card">
+            <button id="close-modal">X</button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/help.js"></script>
+
+    <div class="footer">DepWatch©</div>
+</body>
+</html>

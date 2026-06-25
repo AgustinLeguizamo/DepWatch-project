@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DepWatch Dashboard</title>
+    <link rel="icon" type="image/png" href="">
+    <link rel="icon" type="image/png" href="./cyber-security.png">
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+
+    <div class="app-container">
+
+        <aside class="sidebar" id="sidebar">
+    <div class="sidebar-content">
+        <h2>Sidebar</h2>
+
+        <ul class="sidebar-menu" id="sidebar-menu">
+            <li>
+                <a href="help.html" class="sidebar-item" id="help-link">
+                    <span>❓</span> Ayuda
+                </a>
+            </li>
+            <li>
+                <a href="#" class="sidebar-item" id="clear-history">
+                    <span>🗑️</span> Historial
+                </a>
+            </li>
+        </ul>
+
+        <div id="history-container"></div>
+
+        
+        <div class="sidebar-footer">
+            <a href="https://github.com/AgustinLeguizamo" class="sidebar-item">
+                <p>AgustinLeguizamo on GH</p>
+            </a>
+        </div>
+    </div>
+</aside>
+
+        <div class="main-content">
+
+            <header class="main-header">
+                <button class="btn-menu" id="btn-toggle" title="Menú">≡  Menú</button>
+
+                <div class="header-right">
+                    <div class="logo" id="app-logo">DepWatch</div>
+                    <div class="user-action" id="user-action" title="Ir">→</div>
+                </div>
+            </header>
+
+            <section class="filter-bar" id="filter-bar">
+
+                <div class="filter-group-right" id="filter-group">
+
+                    <input
+                        type="text"
+                        id="package-name"
+                        class="search-input"
+                        placeholder="Paquete">
+
+                    <input
+                        type="text"
+                        id="package-version"
+                        class="search-input"
+                        placeholder="Versión">
+
+                    <select id="ecosystem-select" class="filter-select">
+                        <option value="npm">npm</option>
+                        <option value="PyPI">PyPI</option>
+                        <option value="Maven">Maven</option>
+                        <option value="Go">Go</option>
+                        <option value="NuGet">NuGet</option>
+                        <option value="RubyGems">RubyGems</option>
+                        <option value="crates.io">crates.io</option>
+                        <option value="Packagist">Packagist</option>
+                        <option value="Hex">Hex</option>
+                        <option value="Pub">Pub</option>
+                    </select>
+
+                    <select id="order-select" class="filter-select">
+                        <option value="">orden ▾</option>
+                        <option value="reciente">Más reciente</option>
+                        <option value="asc">A-Z</option>
+                        <option value="desc">Z-A</option>
+                    </select>
+
+                    <button id="btn-search" class="btn-page">
+                        &#x1F50D;&#xFE0E;
+                    </button>
+
+                </div>
+
+            </section>
+
+            <div id="welcome-screen" class="welcome-screen">
+                <h1>Know before you deploy.</h1>
+                <p>
+                    Busca un paquete para analizar vulnerabilidades
+                    utilizando la API OSV.
+                </p>
+            </div>
+
+            <div id="no-results" class="welcome-screen hidden"></div>
+            <div id="vulnerability-banner" class="vulnerability-banner hidden"></div>
+
+            <div class="content-wrapper" id="content-wrapper">
+
+                <main class="cards-container" id="cards-container"></main>
+
+                <div id="loadmore-container" class="loadmore-container hidden">
+                    <button id="btn-load-more" class="btn-page">
+                        &#8595;
+                    </button>
+                </div>
+
+                <footer id="info-footer" class="info-footer">
+                    <p>
+                        DepWatch Project utiliza la API OSV para consultar vulnerabilidades
+                        públicas. La información mostrada puede contener errores, cambios o
+                        demoras en la actualización. Verifique siempre los datos críticos en
+                        las fuentes oficiales.
+                    </p>
+                </footer>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="modal-overlay" class="modal-overlay">
+        <div id="modal-card" class="modal-card"></div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+
+</body>
+</html>
