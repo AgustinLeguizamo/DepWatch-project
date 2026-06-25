@@ -32,6 +32,7 @@ function moverFilterBarArriba() {
 }
 
 let todasLasVulnerabilidades = [];
+ordenarVulnerabilidades();
 let cantidadVisible = 9;
 
 let searchToken = 0;
@@ -105,23 +106,6 @@ async function ejecutarBusqueda(nombre, version, ecosistema,orden) {
 
         const vulnerabilidades = datos.vulns || [];
 
-        if (orden === "reciente") {
-
-        vulnerabilidades.sort((a, b) => {
-        return new Date(b.modified)
-            - new Date(a.modified);
-         });
-
-        }
-        else if (orden === "antiguo") {
-
-        vulnerabilidades.sort((a, b) => {
-        return new Date(a.modified)
-            - new Date(b.modified);
-         });
-
-        }
-
         guardarBusqueda(nombre, version, ecosistema);
 
         todasLasVulnerabilidades = vulnerabilidades;
@@ -170,6 +154,28 @@ async function ejecutarBusqueda(nombre, version, ecosistema,orden) {
 
         infoFooter.classList.remove("hidden");
     }
+}
+
+function ordenarVulnerabilidades() {
+
+    const orden = orderSelect.value;
+
+    if (orden === "reciente") {
+
+        todasLasVulnerabilidades.sort((a, b) => {
+            return new Date(b.modified) - new Date(a.modified);
+        });
+
+    }
+
+    else if (orden === "antiguo") {
+
+        todasLasVulnerabilidades.sort((a, b) => {
+            return new Date(a.modified) - new Date(b.modified);
+        });
+
+    }
+
 }
 
 btnSearch.addEventListener("click", () => {
@@ -411,3 +417,17 @@ document.getElementById("clear-history").addEventListener("click", (e) => {
 });
 
 renderizarHistorial();
+
+orderSelect.addEventListener("change", () => {
+
+    if (todasLasVulnerabilidades.length === 0) {
+        return;
+    }
+
+    ordenarVulnerabilidades();
+
+    renderizarCards(
+        todasLasVulnerabilidades.slice(0, cantidadVisible)
+    );
+
+});
