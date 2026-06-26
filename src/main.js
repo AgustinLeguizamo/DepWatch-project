@@ -43,9 +43,7 @@ btnToggle.addEventListener("click", () => {
     sidebar.classList.toggle("collapsed");
 });
 
-/* =========================
-   CERRAR SIDEBAR AL TOCAR AFUERA (solo mobile)
-========================= */
+
 
 document.addEventListener("click", (e) => {
 
@@ -71,9 +69,7 @@ function resetUI() {
     document.getElementById("cards-container").innerHTML = "";
 }
 
-/* =========================
-   SEARCH (lógica compartida)
-========================= */
+
 
 async function ejecutarBusqueda(nombre, version, ecosistema,orden) {
 
@@ -191,9 +187,7 @@ btnSearch.addEventListener("click", () => {
     ejecutarBusqueda(nombre, version, ecosistema,orden);
 });
 
-/* =========================
-   LOAD MORE
-========================= */
+
 
 btnLoadMore.addEventListener("click", () => {
 
@@ -208,9 +202,7 @@ btnLoadMore.addEventListener("click", () => {
     }
 });
 
-/* =========================
-   CARDS
-========================= */
+
 
 function renderizarCards(vulnerabilidades) {
 
@@ -241,9 +233,6 @@ function renderizarCards(vulnerabilidades) {
     }
 }
 
-/* =========================
-   MODAL
-========================= */
 
 function mostrarModal(vuln) {
 
@@ -269,9 +258,7 @@ document.getElementById("modal-overlay").addEventListener("click", () => {
 
 document.getElementById("modal-card").addEventListener("click", e => e.stopPropagation());
 
-/* =========================
-   LIMPIO FORMATO MD
-========================= */
+
 
 function limpiarTexto(texto) {
 
@@ -281,7 +268,7 @@ function limpiarTexto(texto) {
 
     let limpio = texto;
 
-    // Eliminar links markdown [texto](url)
+    
     let inicio = limpio.indexOf("[");
 
     while (inicio !== -1) {
@@ -314,22 +301,22 @@ function limpiarTexto(texto) {
         inicio = limpio.indexOf("[");
     }
 
-    // Eliminar **
+    
     while (limpio.includes("**")) {
         limpio = limpio.replace("**", "");
     }
 
-    // Eliminar *
+    
     while (limpio.includes("*")) {
         limpio = limpio.replace("*", "");
     }
 
-    // Eliminar `
+    
     while (limpio.includes("`")) {
         limpio = limpio.replace("`", "");
     }
 
-    // Eliminar encabezados markdown
+    
     let lineas = limpio.split("\n");
 
     for (let i = 0; i < lineas.length; i++) {
@@ -348,9 +335,7 @@ function limpiarTexto(texto) {
     return limpio.trim();
 }
 
-/* =========================
-   HISTORIAL
-========================= */
+
 
 function guardarBusqueda(nombre, version, ecosistema) {
 
